@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
 
-import axios from 'axios';
+import { productDetailAction } from '../actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Product = ({ match }) =>
 {
 
-    const [product, setProduct] = useState([]);
+    const dispatch = useDispatch();
+
+    const productDetail = useSelector((state) => state.productDetail);
+
+    const { loading, product } = productDetail;
 
     useEffect(() =>
     {
-        const sendRequest = async () =>
-        {
-            const response = await axios.get('http://localhost:8000/api/products/' + match.params.id);
+        dispatch(productDetailAction(match.params.id));
 
-            setProduct(response.data);
-        };
-
-        sendRequest();
-    }, [match]);
+    }, [match, dispatch]);
 
     return <div>
         <Link to="/" className="btn btn-light my-3">بازگشت به صفحه اصلی</Link>
 
-        <Row>
+        { loading ? <h2>Loading ...</h2> : <Row>
             <Col md={ 6 }>
                 <Image src={ product.image } fluid />
             </Col>
@@ -51,6 +50,8 @@ const Product = ({ match }) =>
                 </ListGroup>
             </Col>
         </Row>
+        }
+
     </div>;
 };
 
