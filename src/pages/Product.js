@@ -5,7 +5,7 @@ import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
 import { productDetailAction } from '../actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Product = ({ match }) =>
+const Product = ({ history, match }) =>
 {
 
     const dispatch = useDispatch();
@@ -19,6 +19,11 @@ const Product = ({ match }) =>
         dispatch(productDetailAction(match.params.id));
 
     }, [match, dispatch]);
+
+    const addToCartHandler = () =>
+    {
+        history.push('/cart/' + match.params.id);
+    };
 
     return <div>
         <Link to="/" className="btn btn-light my-3">بازگشت به صفحه اصلی</Link>
@@ -43,7 +48,9 @@ const Product = ({ match }) =>
             <Col md={ 3 }>
                 <ListGroup variant="flush">
                     <ListGroup.Item>
-                        <Button className="btn-block" type="button">
+                        <Button
+                            onClick={ addToCartHandler }
+                            className="btn-block" type="button">
                             افزودن به سبد خرید
                         </Button>
                     </ListGroup.Item>
