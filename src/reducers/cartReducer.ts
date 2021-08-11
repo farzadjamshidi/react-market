@@ -1,4 +1,4 @@
-export const cartReducer = (state = { cartItems: [] }, action) =>
+export const cartReducer = (state = { cartItems: [] }, action: { type: string, payload: any; }) =>
 {
 
     switch (action.type)
@@ -6,7 +6,7 @@ export const cartReducer = (state = { cartItems: [] }, action) =>
 
         case 'CART_ADD_ITEM':
 
-            const existingItem = state.cartItems.find(item => item._id === action.payload._id);
+            const existingItem = state.cartItems.find((item: { _id: string; }) => item._id === action.payload._id);
 
             if (existingItem)
             {
@@ -22,7 +22,7 @@ export const cartReducer = (state = { cartItems: [] }, action) =>
         case 'CART_DELETE_ITEM':
             return {
                 ...state,
-                cartItems: state.cartItems.filter(item => item._id !== action.payload._id)
+                cartItems: state.cartItems.filter((item: { _id: string; }) => item._id !== action.payload._id)
             };
         default:
             return state;

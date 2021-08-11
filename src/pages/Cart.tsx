@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartAction, deleteFromCartAction } from '../actions/cartAction';
 
-const Cart = ({ match }) =>
+const Cart = ({ match }: { match: any; }) =>
 {
 
     const dispatch = useDispatch();
 
-    const { cartItems } = useSelector((state) => state.cart);
+    const { cartItems } = useSelector((state: { cart: any; }) => state.cart);
 
     useEffect(() =>
     {
@@ -17,7 +17,7 @@ const Cart = ({ match }) =>
 
     }, [match, dispatch]);
 
-    const removeFromCartHandler = (itemId) =>
+    const removeFromCartHandler = (itemId: string) =>
     {
         dispatch(deleteFromCartAction(itemId));
     };
@@ -30,7 +30,7 @@ const Cart = ({ match }) =>
                     <p>سبد خرید خالی است</p>
                 ) : (
                     <ListGroup variant="flush">
-                        { cartItems.map((item) => (
+                        { cartItems.map((item: any) => (
                             <ListGroup.Item key={ item._id }>
                                 <Row>
                                     <Col md={ 2 }>
@@ -57,7 +57,7 @@ const Cart = ({ match }) =>
                 <Card>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                            مجموع: { cartItems.reduce((acc, item) => acc + item.price, 0) }
+                            مجموع: { cartItems.reduce((acc: number, item: any) => acc + item.price, 0) }
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>

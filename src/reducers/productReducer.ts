@@ -1,4 +1,4 @@
-export const productListReducer = (state = { products: [] }, action) =>
+export const productListReducer = (state = { products: [] }, action: { type: string, payload: any; }) =>
 {
 
     switch (action.type)
@@ -13,7 +13,7 @@ export const productListReducer = (state = { products: [] }, action) =>
 
 };
 
-export const productDetailReducer = (state = { product: {} }, action) =>
+export const productDetailReducer = (state = { product: {} }, action: { type: string, payload: any; }) =>
 {
 
     switch (action.type)

@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
 
 import { productDetailAction } from '../actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Product = ({ history, match }) =>
+const Product = ({ history, match }: { history: any, match: any; }) =>
 {
 
     const dispatch = useDispatch();
 
-    const productDetail = useSelector((state) => state.productDetail);
+    const productDetail = useSelector((state: { productDetail: any; }) => state.productDetail);
 
     const { loading, product } = productDetail;
 

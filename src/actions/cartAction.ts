@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addToCartAction = (id) => async (dispatch, getState) =>
+export const addToCartAction = (id: string) => async (dispatch: Function, getState: Function) =>
 {
     try
     {
@@ -16,7 +16,7 @@ export const addToCartAction = (id) => async (dispatch, getState) =>
     }
 };
 
-export const deleteFromCartAction = (id) => async (dispatch, getState) =>
+export const deleteFromCartAction = (id: string) => async (dispatch: Function, getState: Function) =>
 {
     try
     {

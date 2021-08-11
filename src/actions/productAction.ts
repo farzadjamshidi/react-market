@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const productListAction = () => async (dispatch) =>
+export const productListAction = () => async (dispatch: Function) =>
 {
     try
     {
@@ -16,7 +16,7 @@ export const productListAction = () => async (dispatch) =>
     }
 };
 
-export const productDetailAction = (id) => async (dispatch) =>
+export const productDetailAction = (id: string) => async (dispatch: Function) =>
 {
     try
     {

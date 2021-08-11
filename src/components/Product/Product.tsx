@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import "./Product.css";
 
-const Product = ({ product }) =>
+const Product = ({ product }: { product: any; }) =>
 {
     return <Card className="my-3 p-3 rounded">
         <Link to={ `/product/${ product._id }` }>
