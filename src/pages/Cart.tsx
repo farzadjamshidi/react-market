@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartAction, deleteFromCartAction } from '../actions/cartAction';
 
@@ -22,12 +23,14 @@ const Cart = ({ match }: { match: any; }) =>
         dispatch(deleteFromCartAction(itemId));
     };
 
+    const { t } = useTranslation();
+
     return <div>
         <Row>
             <Col md={ 8 }>
-                <h2>سبد خرید</h2>
+                <h2>{ t('CART.SHOPPING_CART') }</h2>
                 { cartItems.length === 0 ? (
-                    <p>سبد خرید خالی است</p>
+                    <p>{ t('CART.CART_IS_EMPTY') }</p>
                 ) : (
                     <ListGroup variant="flush">
                         { cartItems.map((item: any) => (
@@ -57,7 +60,7 @@ const Cart = ({ match }: { match: any; }) =>
                 <Card>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                            مجموع: { cartItems.reduce((acc: number, item: any) => acc + item.price, 0) }
+                            { t('CART.TOTAL') }: { cartItems.reduce((acc: number, item: any) => acc + item.price, 0) }
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>

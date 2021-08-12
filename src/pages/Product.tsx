@@ -4,6 +4,7 @@ import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
 
 import { productDetailAction } from '../actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Product = ({ history, match }: { history: any, match: any; }) =>
 {
@@ -25,10 +26,12 @@ const Product = ({ history, match }: { history: any, match: any; }) =>
         history.push('/cart/' + match.params.id);
     };
 
-    return <div>
-        <Link to="/" className="btn btn-light my-3">بازگشت به صفحه اصلی</Link>
+    const { t } = useTranslation();
 
-        { loading ? <h2>Loading ...</h2> : <Row>
+    return <div>
+        <Link to="/" className="btn btn-light my-3">{ t('PRODUCT.BACK_TO_MAIN_PAGE') }</Link>
+
+        { loading ? <h2>{ t('PRODUCT.PRODUCT_IS_LOADING') }</h2> : <Row>
             <Col md={ 6 }>
                 <Image src={ product.image } fluid />
             </Col>
@@ -51,7 +54,7 @@ const Product = ({ history, match }: { history: any, match: any; }) =>
                         <Button
                             onClick={ addToCartHandler }
                             className="btn-block" type="button">
-                            افزودن به سبد خرید
+                            { t('PRODUCT.ADD_TO_CART') }
                         </Button>
                     </ListGroup.Item>
                 </ListGroup>

@@ -1,0 +1,22 @@
+{
+    "HEADER": {
+        "REACT_MARKET": "فروشگاه ری اکتی"
+    },
+    "FOOTER": {
+        "FOOTER": "فوتر"
+    },
+    "CART": {
+        "SHOPPING_CART": "سبد خرید",
+        "CART_IS_EMPTY": "سبد خرید خالی است.",
+        "TOTAL": "مجموع"
+    },
+    "HOME": {
+        "PRODUCTS": "محصولات",
+        "PRODUCTS_IS_LOADING": "درحال بارگذاری محصولات ..."
+    },
+    "PRODUCT": {
+        "BACK_TO_MAIN_PAGE": "بازگشت به صفحه اصلی",
+        "PRODUCT_IS_LOADING": "درحال بارگذاری محصول ...",
+        "ADD_TO_CART": "افزودن به سبد خرید"
+    }
+}

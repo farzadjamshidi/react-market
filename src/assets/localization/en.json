@@ -1,0 +1,22 @@
+{
+    "HEADER": {
+        "REACT_MARKET": "React Market"
+    },
+    "FOOTER": {
+        "FOOTER": "Footer"
+    },
+    "CART": {
+        "SHOPPING_CART": "Shopping Cart",
+        "CART_IS_EMPTY": "Shopping Cart is empty.",
+        "TOTAL": "Total"
+    },
+    "HOME": {
+        "PRODUCTS": "Products",
+        "PRODUCTS_IS_LOADING": "Loading Products ..."
+    },
+    "PRODUCT": {
+        "BACK_TO_MAIN_PAGE": "Back to main page",
+        "PRODUCT_IS_LOADING": "Loading Product ...",
+        "ADD_TO_CART": "Add to cart"
+    }
+}

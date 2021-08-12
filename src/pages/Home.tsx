@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product/Product';
 import { productListAction } from '../actions/productAction';
+import { useTranslation } from 'react-i18next';
 
 const Home = () =>
 {
@@ -19,9 +20,11 @@ const Home = () =>
 
     }, [dispatch]);
 
+    const { t } = useTranslation();
+
     return <div>
-        <h1>محصولات</h1>
-        { loading ? <h2>Loading ...</h2> : <Row>
+        <h1>{ t('HOME.PRODUCTS') }</h1>
+        { loading ? <h2>{ t('HOME.PRODUCTS_IS_LOADING') }</h2> : <Row>
             { products.map((item: any) =>
             {
                 return (
