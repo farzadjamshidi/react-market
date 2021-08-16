@@ -4,7 +4,7 @@ export const addToCartAction = (id: string) => async (dispatch: Function, getSta
 {
     try
     {
-        const { data } = await axios.get('http://localhost:8000/api/products/' + id);
+        const { data } = await axios.get('https://react-market-21753-default-rtdb.europe-west1.firebasedatabase.app/products/-MhG-oUMJAv0goXu-tAI/' + id + '.json');
 
         dispatch({ type: 'CART_ADD_ITEM', payload: data });
 
